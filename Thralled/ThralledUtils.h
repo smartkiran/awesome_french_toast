@@ -12,5 +12,6 @@
 @interface ThralledUtils : CCLayer {
     
 }
++(CCAnimation*) createAnimationFromPlistFile:(NSString *)plistFileName withDelay:(float)delay withName:(NSString*)name;
 
 @end

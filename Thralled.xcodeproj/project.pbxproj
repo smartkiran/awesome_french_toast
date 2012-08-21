@@ -14,7 +14,7 @@
 		C326423F15E1EE0E0006AC3A /* ground_1080.png in Resources */ = {isa = PBXBuildFile; fileRef = C326423C15E1EE0E0006AC3A /* ground_1080.png */; };
 		C326424015E1EE0E0006AC3A /* Lever.png in Resources */ = {isa = PBXBuildFile; fileRef = C326423D15E1EE0E0006AC3A /* Lever.png */; };
 		C326424415E1EF130006AC3A /* GB2ShapeCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = C326424315E1EF130006AC3A /* GB2ShapeCache.mm */; };
-		C326424715E1F8AA0006AC3A /* ThralledUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C326424615E1F8AA0006AC3A /* ThralledUtils.m */; };
+		C326424715E1F8AA0006AC3A /* ThralledUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = C326424615E1F8AA0006AC3A /* ThralledUtils.mm */; };
 		C326437915E2001B0006AC3A /* Walking_1.png in Resources */ = {isa = PBXBuildFile; fileRef = C326437815E2001B0006AC3A /* Walking_1.png */; };
 		C326437D15E203B80006AC3A /* floor_door_lever_isaura_PE.plist in Resources */ = {isa = PBXBuildFile; fileRef = C326437C15E203B80006AC3A /* floor_door_lever_isaura_PE.plist */; };
 		C32B654315E072180035BE8B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32B654215E072180035BE8B /* QuartzCore.framework */; };
@@ -193,6 +193,7 @@
 		C32B676F15E0721C0035BE8B /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = C32B676E15E0721C0035BE8B /* blocks.png */; };
 		C32B677B15E0A7A60035BE8B /* Ball.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C32B677A15E0A7A60035BE8B /* Ball.jpg */; };
 		C3745BC715E0D362008767BA /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = C3745BC615E0D362008767BA /* ground.png */; };
+		C399724E15E3580F002FC641 /* Isaura.mm in Sources */ = {isa = PBXBuildFile; fileRef = C399724D15E3580F002FC641 /* Isaura.mm */; };
 		C3C0A6B615E0BCAE00CD80C6 /* floor.png in Resources */ = {isa = PBXBuildFile; fileRef = C3C0A6B515E0BCAE00CD80C6 /* floor.png */; };
 /* End PBXBuildFile section */
 
@@ -207,7 +208,7 @@
 		C326424215E1EF130006AC3A /* GB2ShapeCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GB2ShapeCache.h; sourceTree = "<group>"; };
 		C326424315E1EF130006AC3A /* GB2ShapeCache.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GB2ShapeCache.mm; sourceTree = "<group>"; };
 		C326424515E1F8AA0006AC3A /* ThralledUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThralledUtils.h; sourceTree = "<group>"; };
-		C326424615E1F8AA0006AC3A /* ThralledUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThralledUtils.m; sourceTree = "<group>"; };
+		C326424615E1F8AA0006AC3A /* ThralledUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ThralledUtils.mm; sourceTree = "<group>"; };
 		C326437815E2001B0006AC3A /* Walking_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Walking_1.png; sourceTree = "<group>"; };
 		C326437C15E203B80006AC3A /* floor_door_lever_isaura_PE.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = floor_door_lever_isaura_PE.plist; sourceTree = "<group>"; };
 		C32B653E15E072180035BE8B /* Thralled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thralled.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -574,6 +575,8 @@
 		C32B677915E07E160035BE8B /* ThralledGlobals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThralledGlobals.h; sourceTree = "<group>"; };
 		C32B677A15E0A7A60035BE8B /* Ball.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ball.jpg; sourceTree = "<group>"; };
 		C3745BC615E0D362008767BA /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
+		C399724C15E3580F002FC641 /* Isaura.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Isaura.h; sourceTree = "<group>"; };
+		C399724D15E3580F002FC641 /* Isaura.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Isaura.mm; sourceTree = "<group>"; };
 		C3C0A6B515E0BCAE00CD80C6 /* floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1200,7 +1203,9 @@
 				C326424115E1EF130006AC3A /* generic-box2d-plist */,
 				C32B677915E07E160035BE8B /* ThralledGlobals.h */,
 				C326424515E1F8AA0006AC3A /* ThralledUtils.h */,
-				C326424615E1F8AA0006AC3A /* ThralledUtils.m */,
+				C326424615E1F8AA0006AC3A /* ThralledUtils.mm */,
+				C399724C15E3580F002FC641 /* Isaura.h */,
+				C399724D15E3580F002FC641 /* Isaura.mm */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -1442,7 +1447,8 @@
 				C32B676D15E0721C0035BE8B /* PhysicsSprite.mm in Sources */,
 				C326423615E1E90E0006AC3A /* DemoLevel01.mm in Sources */,
 				C326424415E1EF130006AC3A /* GB2ShapeCache.mm in Sources */,
-				C326424715E1F8AA0006AC3A /* ThralledUtils.m in Sources */,
+				C326424715E1F8AA0006AC3A /* ThralledUtils.mm in Sources */,
+				C399724E15E3580F002FC641 /* Isaura.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
