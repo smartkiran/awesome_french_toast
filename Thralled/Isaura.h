@@ -16,12 +16,12 @@ enum IsauraAnimationType{stand_animation,walk_animation};
     @private
         CCAction *walkAnimAction;
         CCAction *standAnimAction;
-    @public
-        CCSprite *isauraSpr;
-        CCNode *IsauraNode;
-        b2Body *isaurabody ;
-        b2BodyDef isauraBodyDef;
 }
+@property (nonatomic, retain) CCSprite *isauraSpr;
+@property (nonatomic, retain) CCNode *IsauraNode;
+@property (readwrite, nonatomic)  b2Body *isaurabody;
+@property (readwrite, nonatomic)  b2BodyDef isauraBodyDef;
+
 +(id) shared;
 //give the position in pixels..
 -(CCNode*) initializeIsauraAtPosition:(CGPoint) positon inTheWorld:(b2World*) world;

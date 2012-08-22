@@ -12,6 +12,10 @@
 #include "ThralledUtils.h"
 
 @implementation Isaura
+@synthesize isauraSpr;
+@synthesize IsauraNode;
+@synthesize isaurabody;
+@synthesize isauraBodyDef;
 
 +(id) shared{
     static id shared = NULL;
@@ -47,7 +51,7 @@
     CCAnimation *walkAnim=[ThralledUtils createAnimationFromPlistFile:@"walking.plist" withDelay:1.0f withName:@"walkAnim"];
     walkAnimAction=[CCRepeatForever actionWithAction:
                     [CCAnimate actionWithAnimation:walkAnim]];
-    CCAnimation *standAnim=[ThralledUtils createAnimationFromPlistFile:@"standing.plist" withDelay:100.0f withName:@"standAnim"];
+    CCAnimation *standAnim=[ThralledUtils createAnimationFromPlistFile:@"standing.plist" withDelay:1.0f withName:@"standAnim"];
     standAnimAction=[CCRepeatForever actionWithAction:
                     [CCAnimate actionWithAnimation:standAnim]];
 }

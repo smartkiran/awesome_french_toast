@@ -18,7 +18,7 @@
     b2Body *_body ;
     CCSprite *_ball ;
     b2Vec2 _portraitGravity;
-    b2Body *isaurabody ;
+    //b2Body *isaurabody ;
 }
 +(CCScene *) scene;
 

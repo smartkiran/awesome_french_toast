@@ -95,7 +95,7 @@
     //creating isaura from isaura.mm
     CCNode *isaura=[[Isaura shared] initializeIsauraAtPosition:ccp(400, 100) inTheWorld:_world];
     [self addChild:isaura];
-    //[[Isaura shared] startAnimation:stand_animation];
+    [[Isaura shared] startAnimation:stand_animation];
     
 }
 
@@ -204,7 +204,7 @@
     {
         if(deviceOrientation==UIDeviceOrientationPortraitUpsideDown)
         {
-            isaurabody->SetTransform(b2Vec2(400/PTM_RATIO,30/PTM_RATIO),CC_DEGREES_TO_RADIANS(90));
+            [[Isaura shared] isaurabody] ->SetTransform(b2Vec2(400/PTM_RATIO,30/PTM_RATIO),CC_DEGREES_TO_RADIANS(90));
             _portraitGravity.Set(10, 0);
             NSLog(@"changed to portrait upside down view!");
         }

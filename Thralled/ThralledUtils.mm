@@ -27,7 +27,11 @@
             CCLOG(@"Animation has no frames in plist file: %@", plistFileName);
         }
         else{
-            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:plistFileName textureFilename:plistFileName];
+            NSMutableString *textureFileName=[NSMutableString stringWithString:plistFileName];
+            [textureFileName deleteCharactersInRange: [textureFileName rangeOfString: @".plist"]];
+            [textureFileName appendString:@".png"];
+             NSLog(@"plist is %@, png is %@",plistFileName,textureFileName);
+            [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:plistFileName textureFilename:textureFileName];
             NSMutableArray *frames = [NSMutableArray arrayWithCapacity:[frameNames count]];
             for( NSString *frameName in frameNames ) {
                 CCSpriteFrame *frame = [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:frameName];
