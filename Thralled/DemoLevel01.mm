@@ -10,6 +10,7 @@
 #include "ThralledGlobals.h"
 #import "PhysicsSprite.h"
 #import "GB2ShapeCache.h"
+#import "Isaura.h"
 
 @implementation DemoLevel01
 
@@ -79,17 +80,23 @@
 //    [[GB2ShapeCache sharedShapeCache] addFixturesToBody:doorbody forShapeName:@"door"];
 //    [doorSpr setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:@"door"]];
     
-    //creating isaura
-    CCSprite *isauraSpr = [CCSprite spriteWithFile:@"Walking_1.png"];
-    [self addChild:isauraSpr];
-    b2BodyDef isauraBodyDef;
-    isauraBodyDef.type = b2_dynamicBody;
-    isauraBodyDef.position.Set(400/PTM_RATIO,100/PTM_RATIO);
-    isauraBodyDef.userData = isauraSpr;
-    isaurabody = _world->CreateBody(&isauraBodyDef);
-    [[GB2ShapeCache sharedShapeCache] addFixturesToBody:isaurabody forShapeName:@"Walking_1"];
-    [isauraSpr setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:@"Walking_1"]];
-    isaurabody->SetFixedRotation(true);
+//    //creating isaura
+//    CCSprite *isauraSpr = [CCSprite spriteWithFile:@"Walking_1.png"];
+//    [self addChild:isauraSpr];
+//    b2BodyDef isauraBodyDef;
+//    isauraBodyDef.type = b2_dynamicBody;
+//    isauraBodyDef.position.Set(400/PTM_RATIO,100/PTM_RATIO);
+//    isauraBodyDef.userData = isauraSpr;
+//    isaurabody = _world->CreateBody(&isauraBodyDef);
+//    [[GB2ShapeCache sharedShapeCache] addFixturesToBody:isaurabody forShapeName:@"Walking_1"];
+//    [isauraSpr setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:@"Walking_1"]];
+//    isaurabody->SetFixedRotation(true);
+    
+    //creating isaura from isaura.mm
+    CCNode *isaura=[[Isaura shared] initializeIsauraAtPosition:ccp(400, 100) inTheWorld:_world];
+    [self addChild:isaura];
+    //[[Isaura shared] startAnimation:stand_animation];
+    
 }
 
 -(void) createBallAt:(CGPoint)position{

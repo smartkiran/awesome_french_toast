@@ -10,12 +10,22 @@
 #import "cocos2d.h"
 #import "Box2D.h"
 
-@interface Isaura {
-    CCNode *IsauraNode;
-    b2Body *isaurabody ;
-    b2BodyDef isauraBodyDef;
+enum IsauraAnimationType{stand_animation,walk_animation};
+
+@interface Isaura:CCLayer {
+    @private
+        CCAction *walkAnimAction;
+        CCAction *standAnimAction;
+    @public
+        CCSprite *isauraSpr;
+        CCNode *IsauraNode;
+        b2Body *isaurabody ;
+        b2BodyDef isauraBodyDef;
 }
 +(id) shared;
--(CCNode*)initIsauraAtPosition:(CGPoint) positon inTheWorld:(b2World*) world;
+//give the position in pixels..
+-(CCNode*) initializeIsauraAtPosition:(CGPoint) positon inTheWorld:(b2World*) world;
+-(void)startAnimation:(IsauraAnimationType) animType;
+-(void)stopAnimation:(IsauraAnimationType) animType;
 
 @end

@@ -16,7 +16,7 @@
 +(id) shared{
     static id shared = NULL;
     if(!shared){
-        shared = [Isaura init];
+        shared = [[Isaura alloc] init];
     }
     return shared;
 }
@@ -27,10 +27,10 @@
     return self;
 }
 
--(CCNode*) initIsauraAtPosition:(CGPoint) position inTheWorld:(b2World*) world{
+-(CCNode*) initializeIsauraAtPosition:(CGPoint) position inTheWorld:(b2World*) world{
     IsauraNode=[CCNode node];
     //creating isaura
-    CCSprite *isauraSpr = [CCSprite spriteWithFile:@"Walking_1.png"];
+    isauraSpr = [CCSprite spriteWithFile:@"Walking_1.png"];
     [IsauraNode addChild:isauraSpr];
     isauraBodyDef.type = b2_dynamicBody;
     isauraBodyDef.position.Set(position.x/PTM_RATIO,position.y/PTM_RATIO);
@@ -44,7 +44,38 @@
 }
 
 -(void) setAnimations{
-    CCAnimation *walkAnim=[ThralledUtils createAnimationFromPlistFile:@"Walking.plist" withDelay:1.0f withName:@"walkAnim"];
+    CCAnimation *walkAnim=[ThralledUtils createAnimationFromPlistFile:@"walking.plist" withDelay:1.0f withName:@"walkAnim"];
+    walkAnimAction=[CCRepeatForever actionWithAction:
+                    [CCAnimate actionWithAnimation:walkAnim]];
+    CCAnimation *standAnim=[ThralledUtils createAnimationFromPlistFile:@"standing.plist" withDelay:100.0f withName:@"standAnim"];
+    standAnimAction=[CCRepeatForever actionWithAction:
+                    [CCAnimate actionWithAnimation:standAnim]];
+}
+
+-(void)startAnimation:(IsauraAnimationType) animType{
+    if(animType==stand_animation)
+    {
+        [isauraSpr runAction:standAnimAction];
+    }
+    else if(animType==walk_animation)
+    {
+        [isauraSpr runAction:walkAnimAction];
+    }
+}
+
+-(void)stopAnimation:(IsauraAnimationType) animType{
+    if(animType==stand_animation)
+    {
+        [isauraSpr stopAction:standAnimAction];
+    }
+    else if(animType==walk_animation)
+    {
+        [isauraSpr stopAction:walkAnimAction];
+    }
+}
+
+-(void)stopAllAnimations{
+    [isauraSpr stopAllActions];
 }
 
 @end

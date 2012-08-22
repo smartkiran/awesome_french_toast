@@ -15,8 +15,8 @@
 //to define the ratio so that your most common object type is 1x1 metre.
 #define PTM_RATIO 32
 
-float32 timeStep = 1.0f / 60.0f;
-int32 velocityIterations = 10;
-int32 positionIterations = 4;
+const float32 timeStep = 1.0f / 60.0f;
+const int32 velocityIterations = 10;
+const int32 positionIterations = 4;
 
 #endif

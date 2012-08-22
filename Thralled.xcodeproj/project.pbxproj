@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C326423215E1E8D70006AC3A /* Walking.plist in Resources */ = {isa = PBXBuildFile; fileRef = C326423015E1E8D70006AC3A /* Walking.plist */; };
-		C326423315E1E8D70006AC3A /* Walking.png in Resources */ = {isa = PBXBuildFile; fileRef = C326423115E1E8D70006AC3A /* Walking.png */; };
+		32411CBC15E45C7600990271 /* standing.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32411CB815E45C7600990271 /* standing.plist */; };
+		32411CBD15E45C7600990271 /* standing.png in Resources */ = {isa = PBXBuildFile; fileRef = 32411CB915E45C7600990271 /* standing.png */; };
+		32411CBE15E45C7600990271 /* walking.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32411CBA15E45C7600990271 /* walking.plist */; };
+		32411CBF15E45C7600990271 /* walking.png in Resources */ = {isa = PBXBuildFile; fileRef = 32411CBB15E45C7600990271 /* walking.png */; };
 		C326423615E1E90E0006AC3A /* DemoLevel01.mm in Sources */ = {isa = PBXBuildFile; fileRef = C326423515E1E90E0006AC3A /* DemoLevel01.mm */; };
 		C326423E15E1EE0E0006AC3A /* door.png in Resources */ = {isa = PBXBuildFile; fileRef = C326423B15E1EE0E0006AC3A /* door.png */; };
 		C326423F15E1EE0E0006AC3A /* ground_1080.png in Resources */ = {isa = PBXBuildFile; fileRef = C326423C15E1EE0E0006AC3A /* ground_1080.png */; };
@@ -198,8 +200,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C326423015E1E8D70006AC3A /* Walking.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Walking.plist; path = Resources/Walking.plist; sourceTree = "<group>"; };
-		C326423115E1E8D70006AC3A /* Walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Walking.png; path = Resources/Walking.png; sourceTree = "<group>"; };
+		32411CB815E45C7600990271 /* standing.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = standing.plist; sourceTree = "<group>"; };
+		32411CB915E45C7600990271 /* standing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = standing.png; sourceTree = "<group>"; };
+		32411CBA15E45C7600990271 /* walking.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = walking.plist; sourceTree = "<group>"; };
+		32411CBB15E45C7600990271 /* walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walking.png; sourceTree = "<group>"; };
 		C326423415E1E90E0006AC3A /* DemoLevel01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoLevel01.h; sourceTree = "<group>"; };
 		C326423515E1E90E0006AC3A /* DemoLevel01.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DemoLevel01.mm; sourceTree = "<group>"; };
 		C326423B15E1EE0E0006AC3A /* door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door.png; sourceTree = "<group>"; };
@@ -600,6 +604,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32411CAF15E45C4500990271 /* SpriteSheets */ = {
+			isa = PBXGroup;
+			children = (
+				32411CB815E45C7600990271 /* standing.plist */,
+				32411CB915E45C7600990271 /* standing.png */,
+				32411CBA15E45C7600990271 /* walking.plist */,
+				32411CBB15E45C7600990271 /* walking.png */,
+			);
+			name = SpriteSheets;
+			sourceTree = "<group>";
+		};
 		C326424115E1EF130006AC3A /* generic-box2d-plist */ = {
 			isa = PBXGroup;
 			children = (
@@ -668,13 +683,12 @@
 		C32B655515E072180035BE8B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				32411CAF15E45C4500990271 /* SpriteSheets */,
 				C326437C15E203B80006AC3A /* floor_door_lever_isaura_PE.plist */,
 				C326437815E2001B0006AC3A /* Walking_1.png */,
 				C326423B15E1EE0E0006AC3A /* door.png */,
 				C326423C15E1EE0E0006AC3A /* ground_1080.png */,
 				C326423D15E1EE0E0006AC3A /* Lever.png */,
-				C326423015E1E8D70006AC3A /* Walking.plist */,
-				C326423115E1E8D70006AC3A /* Walking.png */,
 				C3745BC615E0D362008767BA /* ground.png */,
 				C3C0A6B515E0BCAE00CD80C6 /* floor.png */,
 				C32B677A15E0A7A60035BE8B /* Ball.jpg */,
@@ -1277,13 +1291,15 @@
 				C32B677B15E0A7A60035BE8B /* Ball.jpg in Resources */,
 				C3C0A6B615E0BCAE00CD80C6 /* floor.png in Resources */,
 				C3745BC715E0D362008767BA /* ground.png in Resources */,
-				C326423215E1E8D70006AC3A /* Walking.plist in Resources */,
-				C326423315E1E8D70006AC3A /* Walking.png in Resources */,
 				C326423E15E1EE0E0006AC3A /* door.png in Resources */,
 				C326423F15E1EE0E0006AC3A /* ground_1080.png in Resources */,
 				C326424015E1EE0E0006AC3A /* Lever.png in Resources */,
 				C326437915E2001B0006AC3A /* Walking_1.png in Resources */,
 				C326437D15E203B80006AC3A /* floor_door_lever_isaura_PE.plist in Resources */,
+				32411CBC15E45C7600990271 /* standing.plist in Resources */,
+				32411CBD15E45C7600990271 /* standing.png in Resources */,
+				32411CBE15E45C7600990271 /* walking.plist in Resources */,
+				32411CBF15E45C7600990271 /* walking.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
