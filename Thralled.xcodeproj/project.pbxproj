@@ -194,6 +194,7 @@
 		C32B676D15E0721C0035BE8B /* PhysicsSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = C32B676C15E0721C0035BE8B /* PhysicsSprite.mm */; };
 		C32B676F15E0721C0035BE8B /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = C32B676E15E0721C0035BE8B /* blocks.png */; };
 		C32B677B15E0A7A60035BE8B /* Ball.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C32B677A15E0A7A60035BE8B /* Ball.jpg */; };
+		C36E54F615E5DE50006033B4 /* CustomInputHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = C36E54F515E5DE50006033B4 /* CustomInputHandler.mm */; };
 		C3745BC715E0D362008767BA /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = C3745BC615E0D362008767BA /* ground.png */; };
 		C399724E15E3580F002FC641 /* Isaura.mm in Sources */ = {isa = PBXBuildFile; fileRef = C399724D15E3580F002FC641 /* Isaura.mm */; };
 		C3B0060B15E4909F00D74102 /* Standing_01.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B0060615E4909F00D74102 /* Standing_01.png */; };
@@ -583,6 +584,8 @@
 		C32B676E15E0721C0035BE8B /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
 		C32B677915E07E160035BE8B /* ThralledGlobals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThralledGlobals.h; sourceTree = "<group>"; };
 		C32B677A15E0A7A60035BE8B /* Ball.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ball.jpg; sourceTree = "<group>"; };
+		C36E54F415E5DE50006033B4 /* CustomInputHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomInputHandler.h; path = "generic-box2d-plist/CustomInputHandler.h"; sourceTree = "<group>"; };
+		C36E54F515E5DE50006033B4 /* CustomInputHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CustomInputHandler.mm; path = "generic-box2d-plist/CustomInputHandler.mm"; sourceTree = "<group>"; };
 		C3745BC615E0D362008767BA /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
 		C399724C15E3580F002FC641 /* Isaura.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Isaura.h; sourceTree = "<group>"; };
 		C399724D15E3580F002FC641 /* Isaura.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Isaura.mm; sourceTree = "<group>"; };
@@ -1227,6 +1230,8 @@
 			children = (
 				C326424115E1EF130006AC3A /* generic-box2d-plist */,
 				C32B677915E07E160035BE8B /* ThralledGlobals.h */,
+				C36E54F415E5DE50006033B4 /* CustomInputHandler.h */,
+				C36E54F515E5DE50006033B4 /* CustomInputHandler.mm */,
 				C326424515E1F8AA0006AC3A /* ThralledUtils.h */,
 				C326424615E1F8AA0006AC3A /* ThralledUtils.mm */,
 				C399724C15E3580F002FC641 /* Isaura.h */,
@@ -1493,6 +1498,7 @@
 				C326424415E1EF130006AC3A /* GB2ShapeCache.mm in Sources */,
 				C326424715E1F8AA0006AC3A /* ThralledUtils.mm in Sources */,
 				C399724E15E3580F002FC641 /* Isaura.mm in Sources */,
+				C36E54F615E5DE50006033B4 /* CustomInputHandler.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

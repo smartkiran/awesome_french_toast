@@ -29,8 +29,11 @@
 	if( (self=[super init])) {
 		windowSize = [CCDirector sharedDirector].winSize;
 		// enable events
-		self.isTouchEnabled = YES;
-		self.isAccelerometerEnabled = YES;
+		//self.isTouchEnabled = YES;
+		//self.isAccelerometerEnabled = YES;
+        
+        //set the delegate
+        [self setinputHandlerDelegate:self];
 		//enable notifications
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(deviceRotated:)
@@ -79,19 +82,7 @@
 //    b2Body *doorbody = _world->CreateBody(&doorBodyDef);
 //    [[GB2ShapeCache sharedShapeCache] addFixturesToBody:doorbody forShapeName:@"door"];
 //    [doorSpr setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:@"door"]];
-    
-//    //creating isaura
-//    CCSprite *isauraSpr = [CCSprite spriteWithFile:@"Walking_1.png"];
-//    [self addChild:isauraSpr];
-//    b2BodyDef isauraBodyDef;
-//    isauraBodyDef.type = b2_dynamicBody;
-//    isauraBodyDef.position.Set(400/PTM_RATIO,100/PTM_RATIO);
-//    isauraBodyDef.userData = isauraSpr;
-//    isaurabody = _world->CreateBody(&isauraBodyDef);
-//    [[GB2ShapeCache sharedShapeCache] addFixturesToBody:isaurabody forShapeName:@"Walking_1"];
-//    [isauraSpr setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:@"Walking_1"]];
-//    isaurabody->SetFixedRotation(true);
-    
+
     //creating isaura from isaura.mm
     CCNode *isaura=[[Isaura shared] initializeIsauraAtPosition:ccp(400, 100) inTheWorld:_world];
     [self addChild:isaura];
@@ -120,9 +111,7 @@
 }
 -(void) addNewSpriteAtPosition:(CGPoint)p
 {
-	//We have a 64x64 sprite sheet with 4 different 32x32 images.  The following code is
-	//just randomly picking one of the images
-	PhysicsSprite *sprite = [PhysicsSprite spriteWithFile:@"ground.png" rect:CGRectMake(0,0,480,20)];
+    PhysicsSprite *sprite = [PhysicsSprite spriteWithFile:@"ground.png" rect:CGRectMake(0,0,480,20)];
 	[self addChild:sprite];
 	
 	sprite.position = ccp( p.x, p.y);
@@ -178,14 +167,16 @@
     }
 }
 
-- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	//Add a new body/atlas sprite at the touched location
-	for( UITouch *touch in touches ) {
-		CGPoint location = [touch locationInView: [touch view]];
-		location = [[CCDirector sharedDirector] convertToGL: location];
-		[self addNewSpriteAtPosition: location];
-	}
+- (void)singleTapAt:(CGPoint)touchLocation{
+    NSLog(@"tap received at %f,%f",touchLocation.x,touchLocation.y);
+}
+
+- (void)doubleTapAt:(CGPoint)touchLocation{
+    NSLog(@"double tap received at %f,%f",touchLocation.x,touchLocation.y);
+}
+
+- (void)slideFrom:(CGPoint)startLocation To:(CGPoint)endLocation{
+    NSLog(@"slide from  %f,%f to %f,%f",startLocation.x,startLocation.y,endLocation.x,endLocation.y);
 }
 
 - (void) deviceRotated:(NSNotification *) notification

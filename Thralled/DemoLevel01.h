@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "Box2D.h"
+#import "CustomInputHandler.h"
     
-@interface DemoLevel01 : CCLayer {
+@interface DemoLevel01 : CustomInputHandler <InputHandlerDelegate>{
     CCTexture2D *spriteTexture_;
     CGSize windowSize;
     bool isShowingLandscapeView ;
@@ -21,5 +22,6 @@
     //b2Body *isaurabody ;
 }
 +(CCScene *) scene;
+- (void)singleTapAt:(CGPoint)touchLocation;
 
 @end
