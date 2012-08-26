@@ -84,31 +84,11 @@
 //    [doorSpr setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:@"door"]];
 
     //creating isaura from isaura.mm
-    CCNode *isaura=[[Isaura shared] initializeIsauraAtPosition:ccp(400, 100) inTheWorld:_world];
+    CCNode *isaura=[[Isaura shared] initializeIsauraAtPosition:ccp(200, 100) inTheWorld:_world];
     [self addChild:isaura];
     [[Isaura shared] startAnimation:stand_animation];
-    
 }
 
--(void) createBallAt:(CGPoint)position{
-    //create the ball
-    _ball=[CCSprite spriteWithFile:@"Ball.jpg" rect:CGRectMake(0, 0, 52, 52)];
-    _ball.position=position;
-    [self addChild:_ball];
-    b2BodyDef ballDef;
-    ballDef.position.Set(position.x/PTM_RATIO , position.y/PTM_RATIO);
-    ballDef.type=b2_dynamicBody;
-    ballDef.userData=_ball;
-    _body=_world->CreateBody(&ballDef);
-    b2CircleShape ballShape;
-    ballShape.m_radius=26/PTM_RATIO;
-    b2FixtureDef ballFixture;
-    ballFixture.shape=&ballShape;
-    ballFixture.density=1.0f;
-    ballFixture.friction=0.3f;
-    ballFixture.restitution=0.8f;
-    _body->CreateFixture(&ballFixture);
-}
 -(void) addNewSpriteAtPosition:(CGPoint)p
 {
     PhysicsSprite *sprite = [PhysicsSprite spriteWithFile:@"ground.png" rect:CGRectMake(0,0,480,20)];
@@ -156,6 +136,7 @@
 -(void) update: (ccTime) dt
 {
 	_world->Step(dt, velocityIterations, positionIterations);
+    [[Isaura shared]  isauraStep];
     for (b2Body* b = _world->GetBodyList(); b; b = b->GetNext())
     {
         if (b->GetUserData() != NULL)
@@ -165,10 +146,13 @@
             myActor.rotation = -1 * CC_RADIANS_TO_DEGREES(b->GetAngle());
         }
     }
+    
 }
 
 - (void)singleTapAt:(CGPoint)touchLocation{
     NSLog(@"tap received at %f,%f",touchLocation.x,touchLocation.y);
+    touchLocation=ccp(touchLocation.x-150,touchLocation.y);
+    [[Isaura shared] moveTo:touchLocation];
 }
 
 - (void)doubleTapAt:(CGPoint)touchLocation{

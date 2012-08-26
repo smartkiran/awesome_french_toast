@@ -16,6 +16,9 @@
 @synthesize IsauraNode;
 @synthesize isaurabody;
 @synthesize isauraBodyDef;
+//@synthesize walkAnimAction;
+//@synthesize standAnimAction;
+
 
 +(id) shared{
     static id shared = NULL;
@@ -27,7 +30,6 @@
 
 -(id) init
 {
-    //left this method for any custom initalization
     return self;
 }
 
@@ -48,38 +50,80 @@
 }
 
 -(void) setAnimations{
-    CCAnimation *walkAnim=[ThralledUtils createAnimationFromPlistFile:@"walking.plist" withDelay:1.0f withName:@"walkAnim"];
-    walkAnimAction=[CCRepeatForever actionWithAction:
-                    [CCAnimate actionWithAnimation:walkAnim]];
-    CCAnimation *standAnim=[ThralledUtils createAnimationFromPlistFile:@"standing.plist" withDelay:1.0f withName:@"standAnim"];
-    standAnimAction=[CCRepeatForever actionWithAction:
-                    [CCAnimate actionWithAnimation:standAnim]];
+    walkAnim=[ThralledUtils createAnimationFromPlistFile:@"walking1-14.plist" withDelay:0.25f withName:@"walkAnim"];
+    //walkAnimAction=[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAnim]];
+    standAnim=[ThralledUtils createAnimationFromPlistFile:@"standing1-18.plist" withDelay:0.15f withName:@"standAnim"];
+    //standAnimAction=[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:standAnim]];
 }
 
 -(void)startAnimation:(IsauraAnimationType) animType{
     if(animType==stand_animation)
     {
-        [isauraSpr runAction:standAnimAction];
+        [isauraSpr runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:standAnim]]];
     }
     else if(animType==walk_animation)
     {
-        [isauraSpr runAction:walkAnimAction];
+        [isauraSpr runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAnim]]];
     }
 }
 
 -(void)stopAnimation:(IsauraAnimationType) animType{
     if(animType==stand_animation)
     {
-        [isauraSpr stopAction:standAnimAction];
+        [self stopAllAnimations];
     }
     else if(animType==walk_animation)
     {
-        [isauraSpr stopAction:walkAnimAction];
+        [self stopAllAnimations];
     }
 }
 
 -(void)stopAllAnimations{
     [isauraSpr stopAllActions];
+}
+
+-(void)moveTo:(CGPoint) position{
+    isaurabody->SetLinearVelocity(b2Vec2(0,0));
+    isaurabody->SetAngularVelocity(0);
+    walk=YES;
+    [[Isaura shared] stopAnimation:stand_animation];
+    [[Isaura shared] startAnimation:walk_animation];
+    walkToPosition=b2Vec2(position.x/PTM_RATIO,position.y/PTM_RATIO);
+    if(isaurabody->GetPosition().x>walkToPosition.x){
+        walkForce=b2Vec2(-5,0);
+        walkDirection=false;
+        isauraSpr.flipX=YES;
+    }
+    else{
+        walkForce=b2Vec2(5,0);
+        walkDirection=true; //walking east
+        isauraSpr.flipX=NO;
+    }
+}
+
+-(void)isauraStep{
+    if(walk)
+    {
+        if((walkDirection && isaurabody->GetPosition().x>walkToPosition.x)
+           || (!walkDirection && isaurabody->GetPosition().x<walkToPosition.x) )
+        {
+            isaurabody->SetLinearVelocity(b2Vec2(0,0));
+            isaurabody->SetAngularVelocity(0);
+            [[Isaura shared] stopAnimation:walk_animation];
+            [[Isaura shared] startAnimation:stand_animation];
+            walk=false;
+        }
+        else{
+            // clamp velocity
+            b2Vec2 velocity =isaurabody->GetLinearVelocity();
+           float v = velocity.Length();
+            if(v > maxWalkSpeed)
+            {
+                isaurabody->SetLinearVelocity(maxWalkSpeed/v*velocity);
+            }
+            isaurabody->ApplyForce(isaurabody->GetMass()* walkForce,walkToPosition);
+        }
+    }
 }
 
 @end

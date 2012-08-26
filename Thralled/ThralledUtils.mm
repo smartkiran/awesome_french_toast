@@ -17,7 +17,7 @@
     NSString *file = [plistFileName lastPathComponent];
     NSString *path = [[NSBundle mainBundle] pathForResource:file ofType:nil inDirectory:directory];
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
-    NSLog(@"dictionary is %@",dictionary);
+    //NSLog(@"dictionary is %@",dictionary);
     if ( dictionary == nil ) {
         NSLog(@"Couldn't load animations from plist file.");
     }
@@ -30,7 +30,7 @@
             NSMutableString *textureFileName=[NSMutableString stringWithString:plistFileName];
             [textureFileName deleteCharactersInRange: [textureFileName rangeOfString: @".plist"]];
             [textureFileName appendString:@".png"];
-             NSLog(@"plist is %@, png is %@",plistFileName,textureFileName);
+             //NSLog(@"plist is %@, png is %@",plistFileName,textureFileName);
             [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:plistFileName textureFilename:textureFileName];
             NSMutableArray *frames = [NSMutableArray arrayWithCapacity:[frameNames count]];
             for( NSString *frameName in frameNames ) {
@@ -39,7 +39,7 @@
                     [frames addObject:frame];
                 }
             }
-            NSLog(@"dictionary is %@",frames);
+            //NSLog(@"dictionary is %@",frames);
             if ( [frames count] == 0 ) {
                 CCLOG(@"Animation failed to add to animationCache for plist file %@",plistFileName);
             }
