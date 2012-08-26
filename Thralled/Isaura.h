@@ -10,23 +10,27 @@
 #import "cocos2d.h"
 #import "Box2D.h"
 
-enum IsauraAnimationType{stand_animation,walk_animation};
+enum IsauraAnimationType{stand_animation,walk_animation,fall_animation,jump_animation,run_animation,landing_animation};
 
-@interface Isaura:CCLayer {
+@interface Isaura:CCLayer{
     @private
         b2Vec2 _walkForce;
         b2Vec2 _jumpForce;
-        bool _walkDirection;//true for east and false for west
-        bool _walk;
-        bool _jump;
-        bool _touchedGround;
+        b2Vec2 _counterJumpForce;
         b2Vec2 _touchingGroundAt;
         b2Vec2 _walkToPosition;
         CCAnimation *_walkAnim;
         CCAnimation *_standAnim;
+        CCAnimation *_fallAnim;
+        CCAnimation *_jumpAnim;
+        CCAnimation *_runAnim;
+        CCAnimation *_landingAnim;
+        bool _walkDirection;//true for east and false for west
+        bool _walk;
+        bool _jump;
+        bool _touchedGround;
+        bool _isFallAnimPlayed;
 }
-//@property (nonatomic, retain)  CCAction *walkAnimAction;
-//@property (nonatomic, retain) CCAction *standAnimAction;
 @property (nonatomic, retain) CCSprite *isauraSpr;
 @property (nonatomic, retain) CCNode *IsauraNode;
 @property (readwrite, nonatomic)  b2Body *isaurabody;

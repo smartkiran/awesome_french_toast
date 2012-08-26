@@ -13,7 +13,7 @@ enum TouchInputType{SINGLE_TAP,DOUBLE_TAP,RIGHT_SWIPE,LEFT_SWIPE,INWARD_PINCH, O
 
 @protocol InputHandlerDelegate;
 
-@interface CustomInputHandler : CCLayer {
+@interface CustomInputHandler : CCLayerColor {
     @private
         id inputHandlerDelegate;
         TouchInputType touchType;

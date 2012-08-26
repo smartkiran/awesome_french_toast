@@ -14,7 +14,7 @@
 @synthesize inputHandlerDelegate;
 
 - (id)init {
-    if (self = [super init]) {
+    if (self = [super initWithColor:ccc4(255,255,255,255)]) {
         self.isTouchEnabled=YES;
         self.isAccelerometerEnabled=YES;
     }

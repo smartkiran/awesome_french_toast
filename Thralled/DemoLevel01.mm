@@ -26,19 +26,13 @@
 
 -(id) init
 {
-	if( (self=[super init])) {
-		windowSize = [CCDirector sharedDirector].winSize;
-		// enable events
-		//self.isTouchEnabled = YES;
-		//self.isAccelerometerEnabled = YES;
-        
+	if(self=[super init]) {
+        windowSize = [CCDirector sharedDirector].winSize;
         //set the delegate
         [self setinputHandlerDelegate:self];
 		//enable notifications
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(deviceRotated:)
-                                                     name:UIDeviceOrientationDidChangeNotification
-                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(deviceRotated:)
+                                                     name:UIDeviceOrientationDidChangeNotification object:nil];
         [self initPhysicsWorld];
         [self initLevel];
 		[self scheduleUpdate];

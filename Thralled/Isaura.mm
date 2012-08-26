@@ -30,7 +30,9 @@
 
 -(id) init
 {
-    _jumpForce=b2Vec2(15, 40);
+    _jumpForce=b2Vec2(10, 30);
+    _counterJumpForce=b2Vec2(20, -40);
+    _isFallAnimPlayed=true;
     return self;
 }
 
@@ -51,20 +53,39 @@
 }
 
 -(void) setAnimations{
-    _walkAnim=[ThralledUtils createAnimationFromPlistFile:@"walking1-14.plist" withDelay:0.25f withName:@"walkAnim"];
-    //walkAnimAction=[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAnim]];
-    _standAnim=[ThralledUtils createAnimationFromPlistFile:@"standing1-18.plist" withDelay:0.15f withName:@"standAnim"];
-    //standAnimAction=[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:standAnim]];
+    _walkAnim=[ThralledUtils createAnimationFromPlistFile:@"walking1-14.plist"
+                                                withDelay:0.25f withName:@"walkAnim"];
+    _standAnim=[ThralledUtils createAnimationFromPlistFile:@"standing1-18.plist"
+                                                 withDelay:0.15f withName:@"standAnim"];
+    _runAnim=[ThralledUtils createAnimationFromPlistFile:@"run1-16.plist"
+                                               withDelay:0.15f withName:@"runAnim"];
+    _jumpAnim=[ThralledUtils createAnimationFromPlistFile:@"jumping1-4.plist"
+                                                withDelay:0.4f withName:@"jumpAnim" ];
+    _landingAnim=[ThralledUtils createAnimationFromPlistFile:@"landing1-20.plist"
+                                                   withDelay:0.15f withName:@"landingAnim"];
+    _fallAnim=[ThralledUtils createAnimationFromPlistFile:@"falling1-12.plist"
+                                                withDelay:0.05f withName:@"fallAnim"];
 }
 
 -(void)startAnimation:(IsauraAnimationType) animType{
-    if(animType==stand_animation)
-    {
+    if(animType==stand_animation){
         [isauraSpr runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:_standAnim]]];
     }
-    else if(animType==walk_animation)
-    {
+    else if(animType==walk_animation){
         [isauraSpr runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:_walkAnim]]];
+    }
+    else if(animType==landing_animation){
+        [isauraSpr runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:_landingAnim]]];
+    }
+    else if(animType==run_animation){
+        [isauraSpr runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:_runAnim]]];
+    }
+    else if(animType==jump_animation){
+        _jumpAnim.restoreOriginalFrame=FALSE;
+        [isauraSpr runAction:[CCAnimate actionWithAnimation:_jumpAnim] ];
+    }
+    else if(animType==fall_animation){
+        [isauraSpr runAction:[CCAnimate actionWithAnimation:_fallAnim]];
     }
 }
 
@@ -75,6 +96,9 @@
     }
     else if(animType==walk_animation)
     {
+        [self stopAllAnimations];
+    }
+    else{
         [self stopAllAnimations];
     }
 }
@@ -106,6 +130,7 @@
     _jump=true;
     _touchedGround=true;
     _touchingGroundAt=isaurabody->GetPosition();
+    [self startAnimation:jump_animation];
 }
 
 -(void)isauraStep{
@@ -135,22 +160,33 @@
     {
         if(isaurabody->GetPosition().y>maxJumpInPixels/PTM_RATIO)
         {
-            isaurabody->SetLinearVelocity(b2Vec2(1.5,0));
+            isaurabody->SetLinearVelocity(b2Vec2(0,0));
             isaurabody->SetAngularVelocity(0);
             _touchedGround=false;
+            _isFallAnimPlayed=false;
         }
         else if(!_touchedGround)
         {
-            isaurabody->ApplyForce(isaurabody->GetMass()* b2Vec2(1.5, 0),isaurabody->GetWorldCenter());
+            [self playFallingAnimation];
+            isaurabody->ApplyForce(isaurabody->GetMass()* _counterJumpForce,isaurabody->GetWorldCenter());
            if(isaurabody->GetPosition().y<=_touchingGroundAt.y){
                 _jump=false;
                 isaurabody->SetLinearVelocity(b2Vec2(0,0));
                 isaurabody->SetAngularVelocity(0);
+               [self startAnimation:stand_animation];
             }
         }
         else{
             isaurabody->ApplyForce(isaurabody->GetMass()* _jumpForce,b2Vec2(isaurabody->GetPosition().x, maxJumpInPixels/PTM_RATIO));
         }
+    }
+}
+
+-(void) playFallingAnimation{
+    if(!_isFallAnimPlayed){
+        _isFallAnimPlayed=true;
+        [self stopAllAnimations];
+        [self startAnimation:fall_animation];
     }
 }
 

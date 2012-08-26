@@ -202,6 +202,14 @@
 		C39FC68115E9B2A70012B62A /* standing1-18.plist in Resources */ = {isa = PBXBuildFile; fileRef = C39FC67F15E9B2A70012B62A /* standing1-18.plist */; };
 		C39FC68215E9B2A70012B62A /* standing1-18.png in Resources */ = {isa = PBXBuildFile; fileRef = C39FC68015E9B2A70012B62A /* standing1-18.png */; };
 		C3C0A6B615E0BCAE00CD80C6 /* floor.png in Resources */ = {isa = PBXBuildFile; fileRef = C3C0A6B515E0BCAE00CD80C6 /* floor.png */; };
+		C3E9FC3915EA93C50010300F /* falling1-12.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3E9FC3115EA93C50010300F /* falling1-12.plist */; };
+		C3E9FC3A15EA93C50010300F /* falling1-12.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E9FC3215EA93C50010300F /* falling1-12.png */; };
+		C3E9FC3B15EA93C50010300F /* jumping1-4.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3E9FC3315EA93C50010300F /* jumping1-4.plist */; };
+		C3E9FC3C15EA93C50010300F /* jumping1-4.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E9FC3415EA93C50010300F /* jumping1-4.png */; };
+		C3E9FC3D15EA93C50010300F /* landing1-20.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3E9FC3515EA93C50010300F /* landing1-20.plist */; };
+		C3E9FC3E15EA93C50010300F /* landing1-20.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E9FC3615EA93C50010300F /* landing1-20.png */; };
+		C3E9FC3F15EA93C50010300F /* run1-16.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3E9FC3715EA93C50010300F /* run1-16.plist */; };
+		C3E9FC4015EA93C50010300F /* run1-16.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E9FC3815EA93C50010300F /* run1-16.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -593,6 +601,14 @@
 		C39FC67F15E9B2A70012B62A /* standing1-18.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "standing1-18.plist"; sourceTree = "<group>"; };
 		C39FC68015E9B2A70012B62A /* standing1-18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "standing1-18.png"; sourceTree = "<group>"; };
 		C3C0A6B515E0BCAE00CD80C6 /* floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor.png; sourceTree = "<group>"; };
+		C3E9FC3115EA93C50010300F /* falling1-12.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "falling1-12.plist"; sourceTree = "<group>"; };
+		C3E9FC3215EA93C50010300F /* falling1-12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "falling1-12.png"; sourceTree = "<group>"; };
+		C3E9FC3315EA93C50010300F /* jumping1-4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "jumping1-4.plist"; sourceTree = "<group>"; };
+		C3E9FC3415EA93C50010300F /* jumping1-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jumping1-4.png"; sourceTree = "<group>"; };
+		C3E9FC3515EA93C50010300F /* landing1-20.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "landing1-20.plist"; sourceTree = "<group>"; };
+		C3E9FC3615EA93C50010300F /* landing1-20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "landing1-20.png"; sourceTree = "<group>"; };
+		C3E9FC3715EA93C50010300F /* run1-16.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "run1-16.plist"; sourceTree = "<group>"; };
+		C3E9FC3815EA93C50010300F /* run1-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "run1-16.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -618,6 +634,14 @@
 		32411CAF15E45C4500990271 /* SpriteSheets */ = {
 			isa = PBXGroup;
 			children = (
+				C3E9FC3115EA93C50010300F /* falling1-12.plist */,
+				C3E9FC3215EA93C50010300F /* falling1-12.png */,
+				C3E9FC3315EA93C50010300F /* jumping1-4.plist */,
+				C3E9FC3415EA93C50010300F /* jumping1-4.png */,
+				C3E9FC3515EA93C50010300F /* landing1-20.plist */,
+				C3E9FC3615EA93C50010300F /* landing1-20.png */,
+				C3E9FC3715EA93C50010300F /* run1-16.plist */,
+				C3E9FC3815EA93C50010300F /* run1-16.png */,
 				C39FC67F15E9B2A70012B62A /* standing1-18.plist */,
 				C39FC68015E9B2A70012B62A /* standing1-18.png */,
 				C33D0B6315E9B14A0042772E /* walking1-14.plist */,
@@ -1321,6 +1345,14 @@
 				C33D0B6615E9B14A0042772E /* walking1-14.png in Resources */,
 				C39FC68115E9B2A70012B62A /* standing1-18.plist in Resources */,
 				C39FC68215E9B2A70012B62A /* standing1-18.png in Resources */,
+				C3E9FC3915EA93C50010300F /* falling1-12.plist in Resources */,
+				C3E9FC3A15EA93C50010300F /* falling1-12.png in Resources */,
+				C3E9FC3B15EA93C50010300F /* jumping1-4.plist in Resources */,
+				C3E9FC3C15EA93C50010300F /* jumping1-4.png in Resources */,
+				C3E9FC3D15EA93C50010300F /* landing1-20.plist in Resources */,
+				C3E9FC3E15EA93C50010300F /* landing1-20.png in Resources */,
+				C3E9FC3F15EA93C50010300F /* run1-16.plist in Resources */,
+				C3E9FC4015EA93C50010300F /* run1-16.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
