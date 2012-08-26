@@ -30,6 +30,7 @@
 
 -(id) init
 {
+    _jumpForce=b2Vec2(15, 40);
     return self;
 }
 
@@ -50,20 +51,20 @@
 }
 
 -(void) setAnimations{
-    walkAnim=[ThralledUtils createAnimationFromPlistFile:@"walking1-14.plist" withDelay:0.25f withName:@"walkAnim"];
+    _walkAnim=[ThralledUtils createAnimationFromPlistFile:@"walking1-14.plist" withDelay:0.25f withName:@"walkAnim"];
     //walkAnimAction=[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAnim]];
-    standAnim=[ThralledUtils createAnimationFromPlistFile:@"standing1-18.plist" withDelay:0.15f withName:@"standAnim"];
+    _standAnim=[ThralledUtils createAnimationFromPlistFile:@"standing1-18.plist" withDelay:0.15f withName:@"standAnim"];
     //standAnimAction=[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:standAnim]];
 }
 
 -(void)startAnimation:(IsauraAnimationType) animType{
     if(animType==stand_animation)
     {
-        [isauraSpr runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:standAnim]]];
+        [isauraSpr runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:_standAnim]]];
     }
     else if(animType==walk_animation)
     {
-        [isauraSpr runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:walkAnim]]];
+        [isauraSpr runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:_walkAnim]]];
     }
 }
 
@@ -85,33 +86,39 @@
 -(void)moveTo:(CGPoint) position{
     isaurabody->SetLinearVelocity(b2Vec2(0,0));
     isaurabody->SetAngularVelocity(0);
-    walk=YES;
+    _walk=YES;
     [[Isaura shared] stopAnimation:stand_animation];
     [[Isaura shared] startAnimation:walk_animation];
-    walkToPosition=b2Vec2(position.x/PTM_RATIO,position.y/PTM_RATIO);
-    if(isaurabody->GetPosition().x>walkToPosition.x){
-        walkForce=b2Vec2(-5,0);
-        walkDirection=false;
+    _walkToPosition=b2Vec2(position.x/PTM_RATIO,position.y/PTM_RATIO);
+    if(isaurabody->GetPosition().x>_walkToPosition.x){
+        _walkForce=b2Vec2(-5,0);
+        _walkDirection=false;
         isauraSpr.flipX=YES;
     }
     else{
-        walkForce=b2Vec2(5,0);
-        walkDirection=true; //walking east
+        _walkForce=b2Vec2(5,0);
+        _walkDirection=true; //walking east
         isauraSpr.flipX=NO;
     }
 }
 
+-(void)jump{
+    _jump=true;
+    _touchedGround=true;
+    _touchingGroundAt=isaurabody->GetPosition();
+}
+
 -(void)isauraStep{
-    if(walk)
+    if(_walk)
     {
-        if((walkDirection && isaurabody->GetPosition().x>walkToPosition.x)
-           || (!walkDirection && isaurabody->GetPosition().x<walkToPosition.x) )
+        if((_walkDirection && isaurabody->GetPosition().x>_walkToPosition.x)
+           || (!_walkDirection && isaurabody->GetPosition().x<_walkToPosition.x) )
         {
             isaurabody->SetLinearVelocity(b2Vec2(0,0));
             isaurabody->SetAngularVelocity(0);
             [[Isaura shared] stopAnimation:walk_animation];
             [[Isaura shared] startAnimation:stand_animation];
-            walk=false;
+            _walk=false;
         }
         else{
             // clamp velocity
@@ -121,7 +128,28 @@
             {
                 isaurabody->SetLinearVelocity(maxWalkSpeed/v*velocity);
             }
-            isaurabody->ApplyForce(isaurabody->GetMass()* walkForce,walkToPosition);
+            isaurabody->ApplyForce(isaurabody->GetMass()* _walkForce,_walkToPosition);
+        }
+    }
+    else if(_jump)
+    {
+        if(isaurabody->GetPosition().y>maxJumpInPixels/PTM_RATIO)
+        {
+            isaurabody->SetLinearVelocity(b2Vec2(1.5,0));
+            isaurabody->SetAngularVelocity(0);
+            _touchedGround=false;
+        }
+        else if(!_touchedGround)
+        {
+            isaurabody->ApplyForce(isaurabody->GetMass()* b2Vec2(1.5, 0),isaurabody->GetWorldCenter());
+           if(isaurabody->GetPosition().y<=_touchingGroundAt.y){
+                _jump=false;
+                isaurabody->SetLinearVelocity(b2Vec2(0,0));
+                isaurabody->SetAngularVelocity(0);
+            }
+        }
+        else{
+            isaurabody->ApplyForce(isaurabody->GetMass()* _jumpForce,b2Vec2(isaurabody->GetPosition().x, maxJumpInPixels/PTM_RATIO));
         }
     }
 }

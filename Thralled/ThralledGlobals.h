@@ -19,6 +19,7 @@ const float timeStep = 1.0f / 60.0f;
 const int velocityIterations = 10;
 const int positionIterations = 4;
 const float maxWalkSpeed=4.0f;
+const float maxJumpInPixels=200.0f;
 
 
 #endif

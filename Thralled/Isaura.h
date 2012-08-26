@@ -14,12 +14,16 @@ enum IsauraAnimationType{stand_animation,walk_animation};
 
 @interface Isaura:CCLayer {
     @private
-        b2Vec2 walkForce;
-        bool walkDirection;//true for east and false for west
-        bool walk;
-        b2Vec2 walkToPosition;
-        CCAnimation *walkAnim;
-        CCAnimation *standAnim;
+        b2Vec2 _walkForce;
+        b2Vec2 _jumpForce;
+        bool _walkDirection;//true for east and false for west
+        bool _walk;
+        bool _jump;
+        bool _touchedGround;
+        b2Vec2 _touchingGroundAt;
+        b2Vec2 _walkToPosition;
+        CCAnimation *_walkAnim;
+        CCAnimation *_standAnim;
 }
 //@property (nonatomic, retain)  CCAction *walkAnimAction;
 //@property (nonatomic, retain) CCAction *standAnimAction;
@@ -35,4 +39,5 @@ enum IsauraAnimationType{stand_animation,walk_animation};
 -(void)stopAnimation:(IsauraAnimationType) animType;
 -(void)moveTo:(CGPoint)poistion;
 -(void)isauraStep;
+-(void)jump;
 @end

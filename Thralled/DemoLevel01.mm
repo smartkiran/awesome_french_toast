@@ -161,6 +161,7 @@
 
 - (void)slideFrom:(CGPoint)startLocation To:(CGPoint)endLocation{
     NSLog(@"slide from  %f,%f to %f,%f",startLocation.x,startLocation.y,endLocation.x,endLocation.y);
+    [[Isaura shared] jump];
 }
 
 - (void) deviceRotated:(NSNotification *) notification
