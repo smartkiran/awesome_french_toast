@@ -11,6 +11,7 @@
 #import "GB2ShapeCache.h"
 #import "Isaura.h"
 
+
 @implementation DemoLevel01
 
 +(CCScene *) scene{
@@ -327,7 +328,7 @@
 
 - (void)slideFrom:(CGPoint)startLocation To:(CGPoint)endLocation{
     NSLog(@"slide from  %f,%f to %f,%f",startLocation.x,startLocation.y,endLocation.x,endLocation.y);
-    [[Isaura shared] jump];
+    [[Isaura shared] jump:startLocation.x];
 }
 
 - (void) deviceRotated:(NSNotification *) notification

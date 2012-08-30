@@ -139,10 +139,13 @@
         isauraSpr.flipX=NO;
     }
 }
-   
--(void)jump:(int) taploc{
-	if(!_isAlive)
+
+<<<<<<< Updated upstream
+-(void)jump{
+    if(!_isAlive)
         return;
+=======
+-(void)jump:(int) taploc{
     if(taploc/PTM_RATIO<isaurabody->GetPosition().x)
     {
         _jumpForce.Set(-5, 30);
@@ -158,6 +161,7 @@
     [self stopAllAnimations];
     [self startAnimation:jump_animation];
     
+>>>>>>> Stashed changes
     _jump=true;
     _touchedGround=true;
     _touchingGroundAt=isaurabody->GetPosition();
@@ -224,10 +228,15 @@
 }
 
 -(void) playFallingAnimation{
+<<<<<<< Updated upstream
     if(!_isAlive)
         return;
+    if(!_isFallAnimPlayed){
+        _isFallAnimPlayed=true;
+=======
   //  if(!_isFallAnimPlayed){
         //_isFallAnimPlayed=true;
+>>>>>>> Stashed changes
         [self stopAllAnimations];
         [self startAnimation:fall_animation];
     //}
