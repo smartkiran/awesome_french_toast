@@ -41,6 +41,7 @@
     //creating isaura
     isauraSpr = [CCSprite spriteWithFile:@"Walking_1.png"];
     [IsauraNode addChild:isauraSpr];
+    isauraSpr.tag=TAG_ISAURA;
     isauraBodyDef.type = b2_dynamicBody;
     isauraBodyDef.position.Set(position.x/PTM_RATIO,position.y/PTM_RATIO);
     isauraBodyDef.userData = isauraSpr;
@@ -49,6 +50,9 @@
     [isauraSpr setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:@"Walking_1"]];
     isaurabody->SetFixedRotation(true);
     [self setAnimations];
+    _isAlive=true;
+    _walk=false;
+    _jump=false;
     return IsauraNode;
 }
 
@@ -68,6 +72,8 @@
 }
 
 -(void)startAnimation:(IsauraAnimationType) animType{
+    if(!_isAlive)
+        return;
     if(animType==stand_animation){
         [isauraSpr runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:_standAnim]]];
     }
@@ -90,6 +96,8 @@
 }
 
 -(void)stopAnimation:(IsauraAnimationType) animType{
+    if(!_isAlive)
+        return;
     if(animType==stand_animation)
     {
         [self stopAllAnimations];
@@ -104,10 +112,14 @@
 }
 
 -(void)stopAllAnimations{
+    if(!_isAlive)
+        return;
     [isauraSpr stopAllActions];
 }
 
 -(void)moveTo:(CGPoint) position{
+    if(!_isAlive)
+        return;
     isaurabody->SetLinearVelocity(b2Vec2(0,0));
     isaurabody->SetAngularVelocity(0);
     _walk=YES;
@@ -127,6 +139,8 @@
 }
 
 -(void)jump{
+    if(!_isAlive)
+        return;
     _jump=true;
     _touchedGround=true;
     _touchingGroundAt=isaurabody->GetPosition();
@@ -134,6 +148,8 @@
 }
 
 -(void)isauraStep{
+    if(!_isAlive)
+        return;
     if(_walk)
     {
         if((_walkDirection && isaurabody->GetPosition().x>_walkToPosition.x)
@@ -183,11 +199,36 @@
 }
 
 -(void) playFallingAnimation{
+    if(!_isAlive)
+        return;
     if(!_isFallAnimPlayed){
         _isFallAnimPlayed=true;
         [self stopAllAnimations];
         [self startAnimation:fall_animation];
     }
+}
+
+-(b2Vec2)getIsauraPosition{
+    if(_isAlive)
+        return isaurabody->GetPosition();
+    else
+        return b2Vec2(0, 0);
+}
+
+-(void)stopIsaura{
+    if(!_isAlive)
+        return;
+    isaurabody->SetLinearVelocity(b2Vec2(0,0));
+    isaurabody->SetAngularVelocity(0);
+    _jump=false;
+    _walk=false;
+    [self stopAllAnimations];
+    [self startAnimation:stand_animation];
+}
+
+-(void)removeIsauraFromWorld:(b2World*) world{
+    world->DestroyBody(isaurabody);
+    _isAlive=false;
 }
 
 @end

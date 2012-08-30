@@ -11,6 +11,8 @@
 		32411CBD15E45C7600990271 /* standing.png in Resources */ = {isa = PBXBuildFile; fileRef = 32411CB915E45C7600990271 /* standing.png */; };
 		32411CBE15E45C7600990271 /* walking.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32411CBA15E45C7600990271 /* walking.plist */; };
 		32411CBF15E45C7600990271 /* walking.png in Resources */ = {isa = PBXBuildFile; fileRef = 32411CBB15E45C7600990271 /* walking.png */; };
+		C3127B6715EDC96400EE204B /* background2048X800.png in Resources */ = {isa = PBXBuildFile; fileRef = C3127B6615EDC96400EE204B /* background2048X800.png */; };
+		C3127B6D15EE7EC700EE204B /* MyContactListener.mm in Sources */ = {isa = PBXBuildFile; fileRef = C3127B6C15EE7EC700EE204B /* MyContactListener.mm */; };
 		C326423615E1E90E0006AC3A /* DemoLevel01.mm in Sources */ = {isa = PBXBuildFile; fileRef = C326423515E1E90E0006AC3A /* DemoLevel01.mm */; };
 		C326423E15E1EE0E0006AC3A /* door.png in Resources */ = {isa = PBXBuildFile; fileRef = C326423B15E1EE0E0006AC3A /* door.png */; };
 		C326423F15E1EE0E0006AC3A /* ground_1080.png in Resources */ = {isa = PBXBuildFile; fileRef = C326423C15E1EE0E0006AC3A /* ground_1080.png */; };
@@ -18,7 +20,6 @@
 		C326424415E1EF130006AC3A /* GB2ShapeCache.mm in Sources */ = {isa = PBXBuildFile; fileRef = C326424315E1EF130006AC3A /* GB2ShapeCache.mm */; };
 		C326424715E1F8AA0006AC3A /* ThralledUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = C326424615E1F8AA0006AC3A /* ThralledUtils.mm */; };
 		C326437915E2001B0006AC3A /* Walking_1.png in Resources */ = {isa = PBXBuildFile; fileRef = C326437815E2001B0006AC3A /* Walking_1.png */; };
-		C326437D15E203B80006AC3A /* floor_door_lever_isaura_PE.plist in Resources */ = {isa = PBXBuildFile; fileRef = C326437C15E203B80006AC3A /* floor_door_lever_isaura_PE.plist */; };
 		C32B654315E072180035BE8B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32B654215E072180035BE8B /* QuartzCore.framework */; };
 		C32B654515E072180035BE8B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32B654415E072180035BE8B /* OpenGLES.framework */; };
 		C32B654715E072180035BE8B /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C32B654615E072180035BE8B /* OpenAL.framework */; };
@@ -196,11 +197,17 @@
 		C32B677B15E0A7A60035BE8B /* Ball.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C32B677A15E0A7A60035BE8B /* Ball.jpg */; };
 		C33D0B6515E9B14A0042772E /* walking1-14.plist in Resources */ = {isa = PBXBuildFile; fileRef = C33D0B6315E9B14A0042772E /* walking1-14.plist */; };
 		C33D0B6615E9B14A0042772E /* walking1-14.png in Resources */ = {isa = PBXBuildFile; fileRef = C33D0B6415E9B14A0042772E /* walking1-14.png */; };
+		C347B3D115ED83AF00F5852A /* ClimbUpTorch_1.png in Resources */ = {isa = PBXBuildFile; fileRef = C347B3D015ED83AF00F5852A /* ClimbUpTorch_1.png */; };
 		C36E54F615E5DE50006033B4 /* CustomInputHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = C36E54F515E5DE50006033B4 /* CustomInputHandler.mm */; };
 		C3745BC715E0D362008767BA /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = C3745BC615E0D362008767BA /* ground.png */; };
 		C399724E15E3580F002FC641 /* Isaura.mm in Sources */ = {isa = PBXBuildFile; fileRef = C399724D15E3580F002FC641 /* Isaura.mm */; };
 		C39FC68115E9B2A70012B62A /* standing1-18.plist in Resources */ = {isa = PBXBuildFile; fileRef = C39FC67F15E9B2A70012B62A /* standing1-18.plist */; };
 		C39FC68215E9B2A70012B62A /* standing1-18.png in Resources */ = {isa = PBXBuildFile; fileRef = C39FC68015E9B2A70012B62A /* standing1-18.png */; };
+		C3B41EFB15EEB4B000DB889A /* Lever 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B41EF915EEB4B000DB889A /* Lever 1.png */; };
+		C3B41EFC15EEB4B000DB889A /* Lever 2.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B41EFA15EEB4B000DB889A /* Lever 2.png */; };
+		C3B41EFF15EEB6CF00DB889A /* floor_door_lever_isaura_PE.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3B41EFE15EEB6CF00DB889A /* floor_door_lever_isaura_PE.plist */; };
+		C3B41F0115EEC94900DB889A /* Lever Pull 25.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B41F0015EEC94900DB889A /* Lever Pull 25.png */; };
+		C3B41F0915EF014B00DB889A /* Background_2800X780.png in Resources */ = {isa = PBXBuildFile; fileRef = C3B41F0815EF014B00DB889A /* Background_2800X780.png */; };
 		C3C0A6B615E0BCAE00CD80C6 /* floor.png in Resources */ = {isa = PBXBuildFile; fileRef = C3C0A6B515E0BCAE00CD80C6 /* floor.png */; };
 		C3E9FC3915EA93C50010300F /* falling1-12.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3E9FC3115EA93C50010300F /* falling1-12.plist */; };
 		C3E9FC3A15EA93C50010300F /* falling1-12.png in Resources */ = {isa = PBXBuildFile; fileRef = C3E9FC3215EA93C50010300F /* falling1-12.png */; };
@@ -217,6 +224,9 @@
 		32411CB915E45C7600990271 /* standing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = standing.png; sourceTree = "<group>"; };
 		32411CBA15E45C7600990271 /* walking.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = walking.plist; sourceTree = "<group>"; };
 		32411CBB15E45C7600990271 /* walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walking.png; sourceTree = "<group>"; };
+		C3127B6615EDC96400EE204B /* background2048X800.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2048X800.png; sourceTree = "<group>"; };
+		C3127B6B15EE7EC700EE204B /* MyContactListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyContactListener.h; sourceTree = "<group>"; };
+		C3127B6C15EE7EC700EE204B /* MyContactListener.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MyContactListener.mm; sourceTree = "<group>"; };
 		C326423415E1E90E0006AC3A /* DemoLevel01.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoLevel01.h; sourceTree = "<group>"; };
 		C326423515E1E90E0006AC3A /* DemoLevel01.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DemoLevel01.mm; sourceTree = "<group>"; };
 		C326423B15E1EE0E0006AC3A /* door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door.png; sourceTree = "<group>"; };
@@ -227,7 +237,6 @@
 		C326424515E1F8AA0006AC3A /* ThralledUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThralledUtils.h; sourceTree = "<group>"; };
 		C326424615E1F8AA0006AC3A /* ThralledUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ThralledUtils.mm; sourceTree = "<group>"; };
 		C326437815E2001B0006AC3A /* Walking_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Walking_1.png; sourceTree = "<group>"; };
-		C326437C15E203B80006AC3A /* floor_door_lever_isaura_PE.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = floor_door_lever_isaura_PE.plist; sourceTree = "<group>"; };
 		C32B653E15E072180035BE8B /* Thralled.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thralled.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C32B654215E072180035BE8B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C32B654415E072180035BE8B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -593,6 +602,7 @@
 		C32B677A15E0A7A60035BE8B /* Ball.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Ball.jpg; sourceTree = "<group>"; };
 		C33D0B6315E9B14A0042772E /* walking1-14.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "walking1-14.plist"; sourceTree = "<group>"; };
 		C33D0B6415E9B14A0042772E /* walking1-14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "walking1-14.png"; sourceTree = "<group>"; };
+		C347B3D015ED83AF00F5852A /* ClimbUpTorch_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ClimbUpTorch_1.png; sourceTree = "<group>"; };
 		C36E54F415E5DE50006033B4 /* CustomInputHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomInputHandler.h; path = "generic-box2d-plist/CustomInputHandler.h"; sourceTree = "<group>"; };
 		C36E54F515E5DE50006033B4 /* CustomInputHandler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CustomInputHandler.mm; path = "generic-box2d-plist/CustomInputHandler.mm"; sourceTree = "<group>"; };
 		C3745BC615E0D362008767BA /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
@@ -600,6 +610,11 @@
 		C399724D15E3580F002FC641 /* Isaura.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Isaura.mm; sourceTree = "<group>"; };
 		C39FC67F15E9B2A70012B62A /* standing1-18.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "standing1-18.plist"; sourceTree = "<group>"; };
 		C39FC68015E9B2A70012B62A /* standing1-18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "standing1-18.png"; sourceTree = "<group>"; };
+		C3B41EF915EEB4B000DB889A /* Lever 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lever 1.png"; sourceTree = "<group>"; };
+		C3B41EFA15EEB4B000DB889A /* Lever 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lever 2.png"; sourceTree = "<group>"; };
+		C3B41EFE15EEB6CF00DB889A /* floor_door_lever_isaura_PE.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = floor_door_lever_isaura_PE.plist; sourceTree = "<group>"; };
+		C3B41F0015EEC94900DB889A /* Lever Pull 25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Lever Pull 25.png"; sourceTree = "<group>"; };
+		C3B41F0815EF014B00DB889A /* Background_2800X780.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background_2800X780.png; sourceTree = "<group>"; };
 		C3C0A6B515E0BCAE00CD80C6 /* floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor.png; sourceTree = "<group>"; };
 		C3E9FC3115EA93C50010300F /* falling1-12.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "falling1-12.plist"; sourceTree = "<group>"; };
 		C3E9FC3215EA93C50010300F /* falling1-12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "falling1-12.png"; sourceTree = "<group>"; };
@@ -654,6 +669,15 @@
 			name = SpriteSheets;
 			sourceTree = "<group>";
 		};
+		C3127B6A15EE7EC700EE204B /* MyContactListener */ = {
+			isa = PBXGroup;
+			children = (
+				C3127B6B15EE7EC700EE204B /* MyContactListener.h */,
+				C3127B6C15EE7EC700EE204B /* MyContactListener.mm */,
+			);
+			path = MyContactListener;
+			sourceTree = "<group>";
+		};
 		C326424115E1EF130006AC3A /* generic-box2d-plist */ = {
 			isa = PBXGroup;
 			children = (
@@ -699,6 +723,7 @@
 		C32B655415E072180035BE8B /* Thralled */ = {
 			isa = PBXGroup;
 			children = (
+				C3127B6A15EE7EC700EE204B /* MyContactListener */,
 				C32B677815E07DFD0035BE8B /* Engine */,
 				C32B675F15E0721C0035BE8B /* AppDelegate.h */,
 				C32B676015E0721C0035BE8B /* AppDelegate.mm */,
@@ -722,8 +747,9 @@
 		C32B655515E072180035BE8B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C3B41EFE15EEB6CF00DB889A /* floor_door_lever_isaura_PE.plist */,
+				C347B3CE15ED839A00F5852A /* PNGs */,
 				32411CAF15E45C4500990271 /* SpriteSheets */,
-				C326437C15E203B80006AC3A /* floor_door_lever_isaura_PE.plist */,
 				C326437815E2001B0006AC3A /* Walking_1.png */,
 				C326423B15E1EE0E0006AC3A /* door.png */,
 				C326423C15E1EE0E0006AC3A /* ground_1080.png */,
@@ -1265,6 +1291,19 @@
 			name = Engine;
 			sourceTree = "<group>";
 		};
+		C347B3CE15ED839A00F5852A /* PNGs */ = {
+			isa = PBXGroup;
+			children = (
+				C3B41F0815EF014B00DB889A /* Background_2800X780.png */,
+				C3B41F0015EEC94900DB889A /* Lever Pull 25.png */,
+				C3B41EF915EEB4B000DB889A /* Lever 1.png */,
+				C3B41EFA15EEB4B000DB889A /* Lever 2.png */,
+				C3127B6615EDC96400EE204B /* background2048X800.png */,
+				C347B3D015ED83AF00F5852A /* ClimbUpTorch_1.png */,
+			);
+			name = PNGs;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1336,7 +1375,6 @@
 				C326423F15E1EE0E0006AC3A /* ground_1080.png in Resources */,
 				C326424015E1EE0E0006AC3A /* Lever.png in Resources */,
 				C326437915E2001B0006AC3A /* Walking_1.png in Resources */,
-				C326437D15E203B80006AC3A /* floor_door_lever_isaura_PE.plist in Resources */,
 				32411CBC15E45C7600990271 /* standing.plist in Resources */,
 				32411CBD15E45C7600990271 /* standing.png in Resources */,
 				32411CBE15E45C7600990271 /* walking.plist in Resources */,
@@ -1353,6 +1391,13 @@
 				C3E9FC3E15EA93C50010300F /* landing1-20.png in Resources */,
 				C3E9FC3F15EA93C50010300F /* run1-16.plist in Resources */,
 				C3E9FC4015EA93C50010300F /* run1-16.png in Resources */,
+				C347B3D115ED83AF00F5852A /* ClimbUpTorch_1.png in Resources */,
+				C3127B6715EDC96400EE204B /* background2048X800.png in Resources */,
+				C3B41EFB15EEB4B000DB889A /* Lever 1.png in Resources */,
+				C3B41EFC15EEB4B000DB889A /* Lever 2.png in Resources */,
+				C3B41EFF15EEB6CF00DB889A /* floor_door_lever_isaura_PE.plist in Resources */,
+				C3B41F0115EEC94900DB889A /* Lever Pull 25.png in Resources */,
+				C3B41F0915EF014B00DB889A /* Background_2800X780.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1519,6 +1564,7 @@
 				C326424715E1F8AA0006AC3A /* ThralledUtils.mm in Sources */,
 				C399724E15E3580F002FC641 /* Isaura.mm in Sources */,
 				C36E54F615E5DE50006033B4 /* CustomInputHandler.mm in Sources */,
+				C3127B6D15EE7EC700EE204B /* MyContactListener.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,18 @@ const int velocityIterations = 10;
 const int positionIterations = 4;
 const float maxWalkSpeed=4.0f;
 const float maxJumpInPixels=200.0f;
+const float maxDoorSpeed=2.0f;
+const float maxLeverSpeed=2.0f;
+const float maxDoorOpenTime=60.0f;
 
+enum tags{
+    TAG_ISAURA=0,
+    TAG_DOOR=1,
+    TAG_LEVER=2,
+    TAG_GROUND=3,
+    TAG_RIGHT_SIDEWALL=4,
+    TAG_LEFT_SIDEWALL=5,
+    TAG_ISAURA_WITH_LEVER=6
+};
 
 #endif

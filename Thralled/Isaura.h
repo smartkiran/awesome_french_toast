@@ -30,6 +30,7 @@ enum IsauraAnimationType{stand_animation,walk_animation,fall_animation,jump_anim
         bool _jump;
         bool _touchedGround;
         bool _isFallAnimPlayed;
+        bool _isAlive;
 }
 @property (nonatomic, retain) CCSprite *isauraSpr;
 @property (nonatomic, retain) CCNode *IsauraNode;
@@ -44,4 +45,7 @@ enum IsauraAnimationType{stand_animation,walk_animation,fall_animation,jump_anim
 -(void)moveTo:(CGPoint)poistion;
 -(void)isauraStep;
 -(void)jump;
+-(b2Vec2)getIsauraPosition;
+-(void)stopIsaura;
+-(void)removeIsauraFromWorld:(b2World*) world;
 @end
