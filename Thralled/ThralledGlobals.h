@@ -22,7 +22,7 @@ const float maxWalkSpeed=4.0f;
 const float maxJumpInPixels=200.0f;
 const float maxDoorSpeed=2.0f;
 const float maxLeverSpeed=2.0f;
-const float maxDoorOpenTime=60.0f;
+const float maxDoorOpenTime=120.0f;
 
 enum tags{
     TAG_ISAURA=0,

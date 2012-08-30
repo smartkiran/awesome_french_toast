@@ -10,22 +10,19 @@
 #import "PhysicsSprite.h"
 #import "GB2ShapeCache.h"
 #import "Isaura.h"
-
+#import "SimpleAudioEngine.h" 
 
 @implementation DemoLevel01
-
 +(CCScene *) scene{
     // 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
-	
 	// 'layer' is an autorelease object.
 	DemoLevel01 *layer = [DemoLevel01 node];
 	[scene addChild: layer];
 	return scene;
 }
 
--(id) init
-{
+-(id) init{
 	if(self=[super init]) {
         windowSize = [CCDirector sharedDirector].winSize;
         //set the delegate
@@ -48,8 +45,8 @@
     isShowingLandscapeView = NO;
     _doorMoveForce=b2Vec2(0, 20);
     _leverMoveForce=b2Vec2(0, -20);
-    _doorInitialPosition=b2Vec2(900/PTM_RATIO,200/PTM_RATIO);
-    _leverInitialPosition=b2Vec2(400/PTM_RATIO,100/PTM_RATIO);
+    _doorInitialPosition=b2Vec2(800/PTM_RATIO,200/PTM_RATIO);
+    _leverInitialPosition=b2Vec2(300/PTM_RATIO,100/PTM_RATIO);
     _leverCurrentPosition=_leverInitialPosition;
     _doorTargetPosition=b2Vec2(_doorInitialPosition.x,_doorInitialPosition.y+(200/PTM_RATIO));
     _leverTargetPosition=b2Vec2(_leverInitialPosition.x,_leverInitialPosition.y-(200/PTM_RATIO));
@@ -116,36 +113,6 @@
     [doorSpr setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:@"door"]];
     _doorbody->SetGravityScale(0);
     
-    //_moveDoorUp=true;
-    //_moveLeverDown=true;
-    
-//    //creating lever
-//    CCSprite *leverSpr = [CCSprite spriteWithFile:@"Lever.png"];
-//    [self addChild:leverSpr];
-//    leverSpr.tag=TAG_LEVER;
-//    b2BodyDef leverBodyDef;
-//    leverBodyDef.type = b2_dynamicBody;
-//    leverBodyDef.position.Set(_leverInitialPosition.x,_leverInitialPosition.y);
-//    leverBodyDef.userData = leverSpr;
-//    _leverbody = _world->CreateBody(&leverBodyDef);
-//    [[GB2ShapeCache sharedShapeCache] addFixturesToBody:_leverbody forShapeName:@"Lever"];
-//    [leverSpr setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:@"Lever"]];
-//    _leverbody->SetGravityScale(0);
-    
-//     //creating lever
-//    _leverTex=[[CCTextureCache sharedTextureCache] addImage: @"Lever 1.png"];
-//    //_leverSpr = [CCSprite spriteWithFile:@"Lever 1.png"];
-//    _leverSpr.texture=_leverTex;
-//    [self addChild:_leverSpr];
-//    _leverSpr.tag=TAG_LEVER;
-//    //b2BodyDef _leverBodyDef;
-//    _leverBodyDef.type = b2_dynamicBody;
-//    _leverBodyDef.position.Set(_leverInitialPosition.x,_leverInitialPosition.y);
-//    _leverBodyDef.userData = _leverSpr;
-//    _leverbody = _world->CreateBody(&_leverBodyDef);
-//    [[GB2ShapeCache sharedShapeCache] addFixturesToBody:_leverbody forShapeName:@"Lever 1"];
-//    [_leverSpr setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:@"Lever 1"]];
-//    _leverbody->SetGravityScale(0);
 
     [self addLever];
     //creating isaura from isaura.mm
@@ -188,7 +155,7 @@
     delete _world;
     _body = NULL;
     _world = NULL;
-	[super dealloc];
+    [super dealloc];
 }
 
 -(void) draw
@@ -257,23 +224,38 @@
             if (bodyA!=NULL && bodyB!=NULL && bodyA->GetUserData() != NULL && bodyB->GetUserData() != NULL) {
                 CCSprite *spriteA = (CCSprite *) bodyA->GetUserData();
                 CCSprite *spriteB = (CCSprite *) bodyB->GetUserData();
-                NSLog(@"tag of A: %d",spriteA.tag);
-                NSLog(@"tag of B: %d",spriteB.tag);
+                //NSLog(@"tag of A: %d",spriteA.tag);
+                //NSLog(@"tag of B: %d",spriteB.tag);
                 previousCollision=currentCollision;
-                if (spriteA.tag == TAG_ISAURA && (spriteB.tag == TAG_LEFT_SIDEWALL || spriteB.tag==TAG_RIGHT_SIDEWALL)) {
+                if (spriteA.tag == TAG_ISAURA && (spriteB.tag == TAG_LEFT_SIDEWALL || spriteB.tag==TAG_RIGHT_SIDEWALL || spriteB.tag==TAG_DOOR)) {
                     if(spriteB.tag==TAG_LEFT_SIDEWALL)
                         currentCollision=C_ISAURA_LEFTWALL;
                     else if( spriteB.tag==TAG_RIGHT_SIDEWALL)
                         currentCollision=C_ISAURA_RIGHTWALL;
-                    NSLog(@"first contacted");
+                    else if(spriteA.tag==TAG_DOOR)
+                    {
+                        _doorbody->SetAngularVelocity(0);
+                        _doorbody->SetLinearVelocity(b2Vec2(0, 0));
+                        [self removeFromParentAndCleanup:YES];
+                        [[CCDirector sharedDirector] replaceScene: [DemoLevel01 scene]];
+                        currentCollision=C_ISAURA_DOOR;
+                    }
+                    //NSLog(@"first contacted");
                     if(currentCollision!=previousCollision)
                         [[Isaura shared] stopIsaura];
-                } else if (spriteB.tag == TAG_ISAURA && (spriteA.tag == TAG_LEFT_SIDEWALL || spriteA.tag==TAG_RIGHT_SIDEWALL)) {
+                } else if (spriteB.tag == TAG_ISAURA && (spriteA.tag == TAG_LEFT_SIDEWALL || spriteA.tag==TAG_RIGHT_SIDEWALL|| spriteA.tag==TAG_DOOR)) {
                     if(spriteA.tag==TAG_LEFT_SIDEWALL)
                         currentCollision=C_ISAURA_LEFTWALL;
                     else if( spriteA.tag==TAG_RIGHT_SIDEWALL)
                         currentCollision=C_ISAURA_RIGHTWALL;
-                    NSLog(@"second contacted");
+                    else if(spriteA.tag==TAG_DOOR){
+                        _doorbody->SetAngularVelocity(0);
+                        _doorbody->SetLinearVelocity(b2Vec2(0, 0));
+                        [self removeFromParentAndCleanup:YES];
+                        [[CCDirector sharedDirector] replaceScene: [DemoLevel01 scene]];
+                        currentCollision=C_ISAURA_DOOR;
+                    }
+                    //NSLog(@"second contacted");
                     if(currentCollision!=previousCollision)
                         [[Isaura shared] stopIsaura];
                 }
@@ -296,9 +278,12 @@
     
     if(_leverTriggered){
         _deltaTime+=1;
+        NSLog(@"delta time is %f",_deltaTime);
         if(_deltaTime>maxDoorOpenTime){
             _leverTriggered=false;
-            [self moveDoor:true];
+            //[self moveDoor:true];
+            _moveDoorDown=true;
+            _moveDoorUp=false;
             _deltaTime=0;
         }
     }
@@ -466,7 +451,8 @@
     [_leverSpr setAnchorPoint:[[GB2ShapeCache sharedShapeCache] anchorPointForShape:@"Lever Pull 25"]];
     _isauraWithLeverBody->SetGravityScale(0);
     _isCompleteExchangingLever=true;
-    [self moveDoor:false];
+    //[self moveDoor:false];
+    _moveDoorUp=true;
     _leverTriggered=true;
 }
 

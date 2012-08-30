@@ -13,5 +13,5 @@
     
 }
 +(CCAnimation*) createAnimationFromPlistFile:(NSString *)plistFileName withDelay:(float)delay withName:(NSString*)name;
-
++(void) restartGame;
 @end

@@ -57,4 +57,10 @@
     return animation;
 }
 
++(void)restartGame{
+//    [self removeFromParentAndCleanup:YES];
+//	[[CCDirector sharedDirector] replaceScene: [HelloWorld scene]];
+
+}
+
 @end
